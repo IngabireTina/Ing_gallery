@@ -48,7 +48,7 @@ class Images(models.Model):
     image = models.ImageField(upload_to = 'galy', null=True)
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, null=True)
     location = models.ForeignKey(Location, on_delete=models.DO_NOTHING, null=True)
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateTimeField(auto_now_add=True, null=True)
     author = models.CharField(max_length=40, default='admin')
 
     def __str__(self):
@@ -69,6 +69,7 @@ class Images(models.Model):
 
     @classmethod
     def update_image(cls, pk, value):
+        cls.objects.filter(pk=pk).update(image=value)
 
 
     @classmethod
@@ -76,8 +77,8 @@ class Images(models.Model):
         image = cls.objects.filter(pk=pk).all()
         return image
 
-    delete_image(self):
-    self.delete()
+    def delete_image(self):
+        self.delete()
 
     class Meta:
         ordering = ['date']
