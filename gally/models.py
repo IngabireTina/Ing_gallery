@@ -14,6 +14,12 @@ class Location(models.Model):
         locations = Location.objects.all()
         return locations
 
+    @classmethod
+    def update_locations(cls, pk, value):
+        cls.objects.filter(pk=pk).update(image=value)
+
+    
+
     
 
 class Images(models.Model):
