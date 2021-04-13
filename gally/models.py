@@ -6,4 +6,7 @@ from ingallery import settings
 class Images(models.Model):
     name = models.CharField(max_length=60)
     details = models.TextField()
-    photo = models.ImageFiel(upload_to='galy')
+    photo = models.ImageField(upload_to='galy')
+
+    def __str__(self):
+        return self.name
