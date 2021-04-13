@@ -26,7 +26,15 @@ class Location(models.Model):
         self.delete()
 
 
-        
+
+class Category(models.Model):
+    name = models.CharField(max_length = 40)
+
+    def __str__(self):
+        return self.name
+
+    def save_category(self):
+        self.save()
 
     
 
