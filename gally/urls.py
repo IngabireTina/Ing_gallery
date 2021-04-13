@@ -6,4 +6,11 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', home, name= 'home'),
     path('search-location/', location, name= 'search_location'),
+    path('location/<location>/', location, name = 'location'),
+    path('details/<int:pk>/', details, name = 'details')
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
