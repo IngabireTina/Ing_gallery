@@ -5,4 +5,5 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', home, name= 'home'),
+    path('search-location/', location, name= 'search_location'),
 ]
