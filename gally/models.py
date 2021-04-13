@@ -68,5 +68,16 @@ class Images(models.Model):
         return image
 
     @classmethod
-    def update_image(cls)
+    def update_image(cls, pk, value):
 
+
+    @classmethod
+    def get_image_by_pk(cls, pk):
+        image = cls.objects.filter(pk=pk).all()
+        return image
+
+    delete_image(self):
+    self.delete()
+
+    class Meta:
+        ordering = ['date']
