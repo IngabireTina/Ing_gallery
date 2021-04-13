@@ -38,15 +38,18 @@ class Category(models.Model):
 
     def delete_category(self):
         self.delete()
-        
+
 
     
 
 class Images(models.Model):
-    name = models.CharField(max_length=60)
-    details = models.TextField()
-    img_category = models.CharField(max_length=100, choices=CATEGORY, default='PARTIES')
-    photo = models.ImageField(upload_to='galy')
+    name = models.CharField(max_length=40)
+    description = models.TextField(max_length = 500)
+    image = models.ImageField(upload_to = 'galy', null=True)
+    category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, null=True)
+    location = models.ForeignKey(Location, on_delete=models.DO_NOTHING, null=True)
+    date = models.DateTimeField(auto_now_add=True)
+    author = models.CharField(max_length=40, default='admin')
 
     def __str__(self):
         return self.name
