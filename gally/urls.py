@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', home, name= 'home'),
-    path('search-location/', location, name= 'search_location'),
+    path('search/', search, name= 'search'),
     path('location/<location>/', location, name = 'location'),
     path('details/<int:pk>/', details, name = 'details')
 ]

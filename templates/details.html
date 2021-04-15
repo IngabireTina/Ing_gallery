@@ -1,0 +1,42 @@
+
+{%extends 'base.html'%}
+{% load static %}
+{% block content %}
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="card">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="{{image.image.url}}" alt="book" style="width:100%; ">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h3 class="card-title" style="padding-left: 80px;"><strong>{{image.name}}</strong></h3>
+            <p class="card-text" style="padding-left: 80px;">{{image.description}}</p>
+            <p class="card-text" style="padding-left: 80px;">{{image.author}}</p>
+            <p class="card-text" style="padding-left: 80px;"><small class="text-muted">{{image.date}}</small></p>
+            <form class="form-inline">
+              <input class="form-control" type="text" value="{{image.image.url}}" id="myInput">
+              <button  class="btn bg-info  btn-sm" onclick="copyLink()">Copy</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<script>
+
+function copyLink() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  alert("Copied the text: " + copyText.value);
+}
+
+
+</script>
+{% endblock %}
